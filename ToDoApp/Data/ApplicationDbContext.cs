@@ -9,6 +9,6 @@ namespace ToDoApp.Data
         {
             
         }
-        DbSet<ToDo> ToDos { get; set; }
+        public DbSet<ToDo> ToDos { get; set; }
     }
 }
