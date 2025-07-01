@@ -7,21 +7,19 @@
          </div>
        </div>
        <hr />
-       <div class="row">
-           <div class="col-12">
-               <form method="post">
-                   <input type ="text" class="form-control mb-2" placeholder="Add a task"/>
-                <button type="submit" class="btn btn-success mb-4">Add Task</button>
-               </form>
-           </div>
-    </div>
-           <div class="row border border-1">
+       <div class="text-end">
+        <a asp-controller="ToDo" asp-action="Create" class="btn btn-dark mb-3 "><i class="bi bi-person-plus"></i> Create Task</a>
+       </div>
+        @foreach(var obj in Model)
+        {
+           <div class="row border border-1 mb-2">
             <div class="col-6">
-                <p class="m-3 text-primary">Task</p>
+                <p class="m-4 text-info fw-bold">@obj.Name</p>
             </div>
-        <div class="col-6 d-flex justify-content-end">
-                 <input type="checkbox" class="form-check-input m-2 p-3" />
-            <button class="btn btn-danger mt-2 mb-4"><i class="bi bi-trash"></i></button>
-            </div>
+            <div class="col-6 d-flex justify-content-end">
+                <input type="checkbox" class="form-check-input m-2 p-3" />
+                <button class="btn btn-danger mt-2 mb-4"><i class="bi bi-trash"></i></button>
+            </div>   
            </div>
+        }
 </div>

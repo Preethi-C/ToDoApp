@@ -14,8 +14,20 @@ namespace ToDoApp.Controllers
         }
         public IActionResult Index()
         {
-            List<ToDo> objToDoList = _db.ToDos.ToList();
+        List<ToDo> objToDoList = _db.ToDos.ToList();
             return View(objToDoList);
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Create(ToDo obj) 
+        {
+            _db.ToDos.Add(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
     }
 }
