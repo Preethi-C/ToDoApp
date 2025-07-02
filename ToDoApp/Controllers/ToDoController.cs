@@ -53,7 +53,33 @@ namespace ToDoApp.Controllers
             }
             return View();
         }
-        
+
+        public IActionResult Delete(int? Id)
+        {
+            if(Id==0 ||Id==null)
+            {
+                return NotFound();
+            }
+            ToDo? todoobj = _db.ToDos.FirstOrDefault(y => y.Id==Id);
+
+            if(todoobj==null)
+            {
+                return NotFound();
+            }
+            return View(todoobj);
+        }
+
+        [HttpPost,ActionName("Delete")]
+        public IActionResult DeletePost(ToDo obj)
+        {
+            if(obj==null)
+            {
+                return NotFound();
+            }
+            _db.ToDos.Remove(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
     }
 }

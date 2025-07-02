@@ -37,7 +37,7 @@
             </div>
             <div class="col-3">
                 <a asp-controller="ToDo" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-warning mt-3"><i class="bi bi-pencil-square"></i></a>
-                <a class="btn btn-danger mt-3"><i class="bi bi-trash"></i></a>
+                <a asp-controller="ToDo" asp-action="Delete" class="btn btn-danger mt-3" asp-route-id="@obj.Id"><i class="bi bi-trash"></i></a>
             </div>
            </div>
         }
