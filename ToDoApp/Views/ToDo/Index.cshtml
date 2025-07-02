@@ -10,16 +10,35 @@
        <div class="text-end">
         <a asp-controller="ToDo" asp-action="Create" class="btn btn-dark mb-3 "><i class="bi bi-person-plus"></i> Create Task</a>
        </div>
+    <div class="row border border-1 mb-2">
+        <div class="col-3">
+            <h5 class="m-4 text-warning fw-bold">Title</h5>
+        </div>
+        <div class="col-3">
+            <h5 class="m-4 text-warning fw-bold">Date</h5>
+        </div>
+        <div class="col-3">
+            <h5 class="m-4 text-warning fw-bold">Is Done</h5>
+        </div>
+        <div class="col-3">
+        </div>
+    </div>
         @foreach(var obj in Model)
         {
            <div class="row border border-1 mb-2">
-            <div class="col-6">
-                <p class="m-4 text-info fw-bold">@obj.Name</p>
+            <div class="col-3">
+                <p class="m-4 text-info fw-bold">@obj.Title</p>
             </div>
-            <div class="col-6 d-flex justify-content-end">
-                <input type="checkbox" class="form-check-input m-2 p-3" />
-                <button class="btn btn-danger mt-2 mb-4"><i class="bi bi-trash"></i></button>
-            </div>   
+            <div class="col-3">
+                <p class="m-4 text-info fw-bold">@obj.Date</p>
+            </div>
+            <div class="col-3">
+                <p class="m-4 text-info fw-bold">@obj.IsDone</p>
+            </div>
+            <div class="col-3">
+                <a class="btn btn-warning mt-3"><i class="bi bi-pencil-square"></i></a>
+                <a class="btn btn-danger mt-3"><i class="bi bi-trash"></i></a>
+            </div>
            </div>
         }
 </div>

@@ -28,6 +28,19 @@ namespace ToDoApp.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+        [HttpPost]
+        public IActionResult ToggleComplete(int Id, bool IsDone)
+        {
+        ToDo? todoObj = _db.ToDos.Find(Id);
+            if (todoObj == null)
+            {
+                return NotFound();
+            }
+            todoObj.IsDone = IsDone;
+            _db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
 
     }
 }
