@@ -36,7 +36,7 @@
                 <p class="m-4 text-info fw-bold">@obj.IsDone</p>
             </div>
             <div class="col-3">
-                <a class="btn btn-warning mt-3"><i class="bi bi-pencil-square"></i></a>
+                <a asp-controller="ToDo" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-warning mt-3"><i class="bi bi-pencil-square"></i></a>
                 <a class="btn btn-danger mt-3"><i class="bi bi-trash"></i></a>
             </div>
            </div>
