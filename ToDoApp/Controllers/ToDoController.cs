@@ -24,9 +24,13 @@ namespace ToDoApp.Controllers
         [HttpPost]
         public IActionResult Create(ToDo obj) 
         {
-            _db.ToDos.Add(obj);
-            _db.SaveChanges();
-            return RedirectToAction("Index");
+            if(ModelState.IsValid)
+            {
+                _db.ToDos.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
         }
 
         public IActionResult Edit(int? Id)

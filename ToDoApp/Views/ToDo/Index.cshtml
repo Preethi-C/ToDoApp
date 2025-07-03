@@ -33,7 +33,14 @@
                 <p class="m-4 text-info fw-bold">@obj.Date</p>
             </div>
             <div class="col-3">
-                <p class="m-4 text-info fw-bold">@obj.IsDone</p>
+                    @if(@obj.IsDone)
+                    {
+                    <p class="text-success m-4 fw-bold">Completed</p>
+                    }
+                    else
+                    {
+                    <p class="text-danger m-4 fw-bold">Pending</p>
+                    }
             </div>
             <div class="col-3">
                 <a asp-controller="ToDo" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-warning mt-3"><i class="bi bi-pencil-square"></i></a>

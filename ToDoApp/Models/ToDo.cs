@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using ToDoApp.Validation;
 
 namespace ToDoApp.Models
 {
@@ -12,6 +13,8 @@ namespace ToDoApp.Models
         public string Title { get; set; } = string.Empty;
 
         [DataType(DataType.DateTime)]
+        [Required]
+        [DateFromToday(ErrorMessage = "Date must be today or future date")]
         public DateTime Date { get; set; }
 
         [DisplayName("Is Done")]
